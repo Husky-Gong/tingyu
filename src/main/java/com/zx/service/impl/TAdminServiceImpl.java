@@ -1,12 +1,13 @@
 package com.zx.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import com.zx.domain.TAdmin;
 import com.zx.mapper.TAdminMapper;
 import com.zx.service.TAdminService;
 @Service
-public class TAdminServiceImpl implements TAdminService{
+public class TAdminServiceImpl extends ServiceImpl<TAdminMapper, TAdmin> implements TAdminService{
 
     @Resource
     private TAdminMapper tAdminMapper;

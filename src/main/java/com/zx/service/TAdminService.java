@@ -1,7 +1,8 @@
 package com.zx.service;
 
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.zx.domain.TAdmin;
-public interface TAdminService{
+public interface TAdminService extends IService<TAdmin> {
 
 
     int deleteByPrimaryKey(Integer aid);
