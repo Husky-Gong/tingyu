@@ -17,7 +17,7 @@
         https://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!--注解扫描，使注解生效-->
-    <context:component-scan base-package="com.bjsxt.controller"></context:component-scan>
+    <context:component-scan base-package="com.zx.controller"></context:component-scan>
 
     <!--扫描SpringMVC的注解 增加Springmvc驱动-->
     <!-- 自动加载 RequestMappingHandlerMapping （处理映射器）
