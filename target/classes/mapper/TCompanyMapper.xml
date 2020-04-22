@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zx.mapper.TCompanyMapper">
+  <resultMap id="BaseResultMap" type="com.zx.domain.TCompany">
+    <!--@mbg.generated-->
+    <!--@Table t_company-->
+    <id column="cid" property="cid" />
+    <result column="cpwd" property="cpwd" />
+    <result column="cname" property="cname" />
+    <result column="cphone" property="cphone" />
+    <result column="ceo" property="ceo" />
+    <result column="cmail" property="cmail" />
+    <result column="starttime" property="starttime" />
+    <result column="status" property="status" />
+    <result column="ordernumber" property="ordernumber" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    cid, cpwd, cname, cphone, ceo, cmail, starttime, `status`, ordernumber
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_company
+    where cid = #{cid}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_company
+    where cid = #{cid}
+  </delete>
+  <insert id="insert" keyColumn="cid" keyProperty="cid" parameterType="com.zx.domain.TCompany" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_company (cpwd, cname, cphone, ceo, cmail, starttime, `status`, 
+      ordernumber)
+    values (#{cpwd}, #{cname}, #{cphone}, #{ceo}, #{cmail}, #{starttime}, #{status}, 
+      #{ordernumber})
+  </insert>
+  <insert id="insertSelective" keyColumn="cid" keyProperty="cid" parameterType="com.zx.domain.TCompany" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_company
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="cpwd != null">
+        cpwd,
+      </if>
+      <if test="cname != null">
+        cname,
+      </if>
+      <if test="cphone != null">
+        cphone,
+      </if>
+      <if test="ceo != null">
+        ceo,
+      </if>
+      <if test="cmail != null">
+        cmail,
+      </if>
+      <if test="starttime != null">
+        starttime,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="ordernumber != null">
+        ordernumber,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="cpwd != null">
+        #{cpwd},
+      </if>
+      <if test="cname != null">
+        #{cname},
+      </if>
+      <if test="cphone != null">
+        #{cphone},
+      </if>
+      <if test="ceo != null">
+        #{ceo},
+      </if>
+      <if test="cmail != null">
+        #{cmail},
+      </if>
+      <if test="starttime != null">
+        #{starttime},
+      </if>
+      <if test="status != null">
+        #{status},
+      </if>
+      <if test="ordernumber != null">
+        #{ordernumber},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zx.domain.TCompany">
+    <!--@mbg.generated-->
+    update t_company
+    <set>
+      <if test="cpwd != null">
+        cpwd = #{cpwd},
+      </if>
+      <if test="cname != null">
+        cname = #{cname},
+      </if>
+      <if test="cphone != null">
+        cphone = #{cphone},
+      </if>
+      <if test="ceo != null">
+        ceo = #{ceo},
+      </if>
+      <if test="cmail != null">
+        cmail = #{cmail},
+      </if>
+      <if test="starttime != null">
+        starttime = #{starttime},
+      </if>
+      <if test="status != null">
+        `status` = #{status},
+      </if>
+      <if test="ordernumber != null">
+        ordernumber = #{ordernumber},
+      </if>
+    </set>
+    where cid = #{cid}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zx.domain.TCompany">
+    <!--@mbg.generated-->
+    update t_company
+    set cpwd = #{cpwd},
+      cname = #{cname},
+      cphone = #{cphone},
+      ceo = #{ceo},
+      cmail = #{cmail},
+      starttime = #{starttime},
+      `status` = #{status},
+      ordernumber = #{ordernumber}
+    where cid = #{cid}
+  </update>
+</mapper>
