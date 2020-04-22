@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        https://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
+
+    <!--[A]连接数据库，获得数据源-->
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${m_driver}"></property>
+
+        <property name="url" value="${m_url}"></property>
+
+        <property name="username" value="${m_uname}"></property>
+
+        <property name="password" value="${m_pwd}"></property>
+    </bean>
+
+    <!--[B]获得sqlsessionFactory工厂-->
+    <bean id="factory" class="com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean">
+
+        <property name="dataSource" ref="dataSource"></property>
+
+        <property name="typeAliasesPackage" value="com.bjsxt.pojo"></property>
+
+        <!--配置mybatisPlus中分页插件-->
+        <property name="plugins">
+            <array>
+                <bean id="p" class="com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor">
+                    <!--指定数据库方言 mysql 增加limit-->
+                    <property name="dialectType" value="mysql"></property>
+                </bean>
+
+            </array>
+
+        </property>
+
+        <!--mybatisPlus中全局配置策略-->
+       <!-- <property name="globalConfig" ref="globalConfig"></property>-->
+
+    </bean>
+
+    <!--[C]扫描mapper文件-->
+    <bean id="mapper" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+
+        <property name="sqlSessionFactoryBeanName" value="factory"></property>
+
+        <property name="basePackage" value="com.bjsxt.mapper"></property>
+    </bean>
+
+    <!--[D]全局配置对象-->
+
+     <bean id="globalConfig" class="com.baomidou.mybatisplus.core.config.GlobalConfig">
+
+         <!--配置数据库映射的管理-->
+         <property name="dbConfig">
+
+             <bean  class="com.baomidou.mybatisplus.core.config.GlobalConfig$DbConfig">
+                 <!--给所有的表名 指定了前缀-->
+                 <property name="tablePrefix" value="t_"></property>
+                 <!--所有的主键都是自增-->
+                 <property name="idType" value="AUTO"></property>
+
+             </bean>
+         </property>
+     </bean>
+
+</beans>
