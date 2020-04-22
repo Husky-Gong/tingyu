@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zx.mapper.TAdminMapper">
+  <resultMap id="BaseResultMap" type="com.zx.domain.TAdmin">
+    <!--@mbg.generated-->
+    <!--@Table t_admin-->
+    <id column="aid" property="aid" />
+    <result column="aname" property="aname" />
+    <result column="apwd" property="apwd" />
+    <result column="aphone" property="aphone" />
+    <result column="starttime" property="starttime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    aid, aname, apwd, aphone, starttime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_admin
+    where aid = #{aid}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_admin
+    where aid = #{aid}
+  </delete>
+  <insert id="insert" keyColumn="aid" keyProperty="aid" parameterType="com.zx.domain.TAdmin" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_admin (aname, apwd, aphone, starttime)
+    values (#{aname}, #{apwd}, #{aphone}, #{starttime})
+  </insert>
+  <insert id="insertSelective" keyColumn="aid" keyProperty="aid" parameterType="com.zx.domain.TAdmin" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_admin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="aname != null">
+        aname,
+      </if>
+      <if test="apwd != null">
+        apwd,
+      </if>
+      <if test="aphone != null">
+        aphone,
+      </if>
+      <if test="starttime != null">
+        starttime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="aname != null">
+        #{aname},
+      </if>
+      <if test="apwd != null">
+        #{apwd},
+      </if>
+      <if test="aphone != null">
+        #{aphone},
+      </if>
+      <if test="starttime != null">
+        #{starttime},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zx.domain.TAdmin">
+    <!--@mbg.generated-->
+    update t_admin
+    <set>
+      <if test="aname != null">
+        aname = #{aname},
+      </if>
+      <if test="apwd != null">
+        apwd = #{apwd},
+      </if>
+      <if test="aphone != null">
+        aphone = #{aphone},
+      </if>
+      <if test="starttime != null">
+        starttime = #{starttime},
+      </if>
+    </set>
+    where aid = #{aid}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zx.domain.TAdmin">
+    <!--@mbg.generated-->
+    update t_admin
+    set aname = #{aname},
+      apwd = #{apwd},
+      aphone = #{aphone},
+      starttime = #{starttime}
+    where aid = #{aid}
+  </update>
+</mapper>

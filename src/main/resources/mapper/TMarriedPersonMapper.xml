@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zx.mapper.TMarriedPersonMapper">
+  <resultMap id="BaseResultMap" type="com.zx.domain.TMarriedPerson">
+    <!--@mbg.generated-->
+    <!--@Table t_married_person-->
+    <id column="pid" property="pid" />
+    <result column="ppwd" property="ppwd" />
+    <result column="pname" property="pname" />
+    <result column="phone" property="phone" />
+    <result column="pmail" property="pmail" />
+    <result column="marrydate" property="marrydate" />
+    <result column="regdate" property="regdate" />
+    <result column="status" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    pid, ppwd, pname, phone, pmail, marrydate, regdate, `status`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_married_person
+    where pid = #{pid}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_married_person
+    where pid = #{pid}
+  </delete>
+  <insert id="insert" keyColumn="pid" keyProperty="pid" parameterType="com.zx.domain.TMarriedPerson" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_married_person (ppwd, pname, phone, pmail, marrydate, regdate, `status`
+      )
+    values (#{ppwd}, #{pname}, #{phone}, #{pmail}, #{marrydate}, #{regdate}, #{status}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="pid" keyProperty="pid" parameterType="com.zx.domain.TMarriedPerson" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_married_person
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ppwd != null">
+        ppwd,
+      </if>
+      <if test="pname != null">
+        pname,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="pmail != null">
+        pmail,
+      </if>
+      <if test="marrydate != null">
+        marrydate,
+      </if>
+      <if test="regdate != null">
+        regdate,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ppwd != null">
+        #{ppwd},
+      </if>
+      <if test="pname != null">
+        #{pname},
+      </if>
+      <if test="phone != null">
+        #{phone},
+      </if>
+      <if test="pmail != null">
+        #{pmail},
+      </if>
+      <if test="marrydate != null">
+        #{marrydate},
+      </if>
+      <if test="regdate != null">
+        #{regdate},
+      </if>
+      <if test="status != null">
+        #{status},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zx.domain.TMarriedPerson">
+    <!--@mbg.generated-->
+    update t_married_person
+    <set>
+      <if test="ppwd != null">
+        ppwd = #{ppwd},
+      </if>
+      <if test="pname != null">
+        pname = #{pname},
+      </if>
+      <if test="phone != null">
+        phone = #{phone},
+      </if>
+      <if test="pmail != null">
+        pmail = #{pmail},
+      </if>
+      <if test="marrydate != null">
+        marrydate = #{marrydate},
+      </if>
+      <if test="regdate != null">
+        regdate = #{regdate},
+      </if>
+      <if test="status != null">
+        `status` = #{status},
+      </if>
+    </set>
+    where pid = #{pid}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zx.domain.TMarriedPerson">
+    <!--@mbg.generated-->
+    update t_married_person
+    set ppwd = #{ppwd},
+      pname = #{pname},
+      phone = #{phone},
+      pmail = #{pmail},
+      marrydate = #{marrydate},
+      regdate = #{regdate},
+      `status` = #{status}
+    where pid = #{pid}
+  </update>
+</mapper>
