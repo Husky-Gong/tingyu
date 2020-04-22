@@ -14,6 +14,7 @@
     <!--@mbg.generated-->
     aid, aname, apwd, aphone, starttime
   </sql>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
     select 

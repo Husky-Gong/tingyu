@@ -30,15 +30,15 @@ public class Test {
         // dsc.setSchemaName("public");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("root");
+        dsc.setPassword("Zz010013");
 
         // 包配置
         PackageConfig pc = new PackageConfig();
-        pc.setParent("com.bjsxt")
+        pc.setParent("com.zx")
                 .setMapper("mapper")
                 .setService("service")
                 .setController("controller")
-                .setEntity("pojo")
+                .setEntity("domain")
                 .setXml("mapper");
 
         /**
