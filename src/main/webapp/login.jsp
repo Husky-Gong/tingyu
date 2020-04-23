@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>用户登录</title>
+    <title>User login</title>
     <base href="<%=request.getContextPath()+"/"%>">
 
     <link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css">
