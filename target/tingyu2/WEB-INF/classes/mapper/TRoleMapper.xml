@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zx.mapper.TRoleMapper">
+  <resultMap id="BaseResultMap" type="com.zx.domain.TRole">
+    <!--@mbg.generated-->
+    <!--@Table t_role-->
+    <id column="rid" property="rid" />
+    <result column="rname" property="rname" />
+    <result column="rdesc" property="rdesc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    rid, rname, rdesc
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_role
+    where rid = #{rid}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_role
+    where rid = #{rid}
+  </delete>
+  <insert id="insert" keyColumn="rid" keyProperty="rid" parameterType="com.zx.domain.TRole" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_role (rname, rdesc)
+    values (#{rname}, #{rdesc})
+  </insert>
+  <insert id="insertSelective" keyColumn="rid" keyProperty="rid" parameterType="com.zx.domain.TRole" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_role
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="rname != null">
+        rname,
+      </if>
+      <if test="rdesc != null">
+        rdesc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="rname != null">
+        #{rname},
+      </if>
+      <if test="rdesc != null">
+        #{rdesc},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zx.domain.TRole">
+    <!--@mbg.generated-->
+    update t_role
+    <set>
+      <if test="rname != null">
+        rname = #{rname},
+      </if>
+      <if test="rdesc != null">
+        rdesc = #{rdesc},
+      </if>
+    </set>
+    where rid = #{rid}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zx.domain.TRole">
+    <!--@mbg.generated-->
+    update t_role
+    set rname = #{rname},
+      rdesc = #{rdesc}
+    where rid = #{rid}
+  </update>
+</mapper>

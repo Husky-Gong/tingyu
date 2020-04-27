@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zx.mapper.HostMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zx.pojo.Host">
+        <id column="hid" property="hid" />
+        <result column="hname" property="hname" />
+        <result column="hpwd" property="hpwd" />
+        <result column="hphone" property="hphone" />
+        <result column="starttime" property="starttime" />
+        <result column="status" property="status" />
+        <result column="strong" property="strong" />
+        <result column="num" property="num" />
+
+        <association property="hostPower" javaType="com.zx.pojo.HostPower">
+            <id column="hpid" property="hpid" />
+            <result column="hpstart" property="hpstart" />
+            <result column="hpstart_beigindate" property="hpstartBeigindate" />
+            <result column="hpstart_enddate" property="hpstartEnddate" />
+            <result column="hp_order_power" property="hpOrderPower" />
+            <result column="hpstart_begintime" property="hpstartBegintime" />
+            <result column="hpstart_endtime" property="hpstartEndtime" />
+            <result column="hpdiscount" property="hpdiscount" />
+            <result column="hp_dis_starttime" property="hpDisStarttime" />
+            <result column="hp_dis_endtime" property="hpDisEndtime" />
+            <result column="hpprice" property="hpprice" />
+            <result column="hcosts" property="hcosts" />
+            <result column="hostid" property="hostid" />
+        </association>
+
+    </resultMap>
+
+
+    <select id="selectMore" resultMap="BaseResultMap">
+
+        SELECT  *  FROM   t_host   h   LEFT   JOIN   t_host_power  p    ON   h.`hid`=p.`hostid`
+
+          <where>
+               <if test="param2.hname!=null and param2.hname!=''">
+                   h.hname=#{param2.hname}
+               </if>
+              <if test="param2.status!=null and param2.status!=''">
+                and  h.status=#{param2.status}
+              </if>
+              <!--一定判断当前对象是否为空-->
+              <if test="param2.hostPower!=null">
+                  <if test="param2.hostPower.hpstart!=null and param2.hostPower.hpstart!=''">
+                      and p.hpstart=#{param2.hostPower.hpstart}
+                  </if>
+                  <if test="param2.hostPower.hpdiscount!=null and param2.hostPower.hpdiscount!=''">
+                      and p.hpdiscount=#{param2.hostPower.hpdiscount}
+                  </if>
+              </if>
+
+          </where>
+
+        <if test="param2.strong!=null and param2.strong!=''">
+            order  by  h.strong  ${param2.strong}
+        </if>
+
+
+    </select>
+
+</mapper>

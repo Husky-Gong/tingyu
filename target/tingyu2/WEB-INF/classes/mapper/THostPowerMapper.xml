@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zx.mapper.THostPowerMapper">
+  <resultMap id="BaseResultMap" type="com.zx.domain.THostPower">
+    <!--@mbg.generated-->
+    <!--@Table t_host_power-->
+    <id column="hpid" property="hpid" />
+    <result column="hpstar" property="hpstar" />
+    <result column="hpstart_begindate" property="hpstartBegindate" />
+    <result column="hpstar_enddate" property="hpstarEnddate" />
+    <result column="hp_order_power" property="hpOrderPower" />
+    <result column="hpstar_begintime" property="hpstarBegintime" />
+    <result column="hpstar_endtime" property="hpstarEndtime" />
+    <result column="hpdiscount" property="hpdiscount" />
+    <result column="hp_dis_starttime" property="hpDisStarttime" />
+    <result column="hp_dis_endtime" property="hpDisEndtime" />
+    <result column="hpprice" property="hpprice" />
+    <result column="hpcosts" property="hpcosts" />
+    <result column="hostid" property="hostid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    hpid, hpstar, hpstart_begindate, hpstar_enddate, hp_order_power, hpstar_begintime, 
+    hpstar_endtime, hpdiscount, hp_dis_starttime, hp_dis_endtime, hpprice, hpcosts, hostid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_host_power
+    where hpid = #{hpid}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_host_power
+    where hpid = #{hpid}
+  </delete>
+  <insert id="insert" keyColumn="hpid" keyProperty="hpid" parameterType="com.zx.domain.THostPower" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_host_power (hpstar, hpstart_begindate, hpstar_enddate, hp_order_power, hpstar_begintime, 
+      hpstar_endtime, hpdiscount, hp_dis_starttime, hp_dis_endtime, hpprice, 
+      hpcosts, hostid)
+    values (#{hpstar}, #{hpstartBegindate}, #{hpstarEnddate}, #{hpOrderPower}, #{hpstarBegintime}, 
+      #{hpstarEndtime}, #{hpdiscount}, #{hpDisStarttime}, #{hpDisEndtime}, #{hpprice}, 
+      #{hpcosts}, #{hostid})
+  </insert>
+  <insert id="insertSelective" keyColumn="hpid" keyProperty="hpid" parameterType="com.zx.domain.THostPower" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_host_power
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="hpstar != null">
+        hpstar,
+      </if>
+      <if test="hpstartBegindate != null">
+        hpstart_begindate,
+      </if>
+      <if test="hpstarEnddate != null">
+        hpstar_enddate,
+      </if>
+      <if test="hpOrderPower != null">
+        hp_order_power,
+      </if>
+      <if test="hpstarBegintime != null">
+        hpstar_begintime,
+      </if>
+      <if test="hpstarEndtime != null">
+        hpstar_endtime,
+      </if>
+      <if test="hpdiscount != null">
+        hpdiscount,
+      </if>
+      <if test="hpDisStarttime != null">
+        hp_dis_starttime,
+      </if>
+      <if test="hpDisEndtime != null">
+        hp_dis_endtime,
+      </if>
+      <if test="hpprice != null">
+        hpprice,
+      </if>
+      <if test="hpcosts != null">
+        hpcosts,
+      </if>
+      <if test="hostid != null">
+        hostid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="hpstar != null">
+        #{hpstar},
+      </if>
+      <if test="hpstartBegindate != null">
+        #{hpstartBegindate},
+      </if>
+      <if test="hpstarEnddate != null">
+        #{hpstarEnddate},
+      </if>
+      <if test="hpOrderPower != null">
+        #{hpOrderPower},
+      </if>
+      <if test="hpstarBegintime != null">
+        #{hpstarBegintime},
+      </if>
+      <if test="hpstarEndtime != null">
+        #{hpstarEndtime},
+      </if>
+      <if test="hpdiscount != null">
+        #{hpdiscount},
+      </if>
+      <if test="hpDisStarttime != null">
+        #{hpDisStarttime},
+      </if>
+      <if test="hpDisEndtime != null">
+        #{hpDisEndtime},
+      </if>
+      <if test="hpprice != null">
+        #{hpprice},
+      </if>
+      <if test="hpcosts != null">
+        #{hpcosts},
+      </if>
+      <if test="hostid != null">
+        #{hostid},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zx.domain.THostPower">
+    <!--@mbg.generated-->
+    update t_host_power
+    <set>
+      <if test="hpstar != null">
+        hpstar = #{hpstar},
+      </if>
+      <if test="hpstartBegindate != null">
+        hpstart_begindate = #{hpstartBegindate},
+      </if>
+      <if test="hpstarEnddate != null">
+        hpstar_enddate = #{hpstarEnddate},
+      </if>
+      <if test="hpOrderPower != null">
+        hp_order_power = #{hpOrderPower},
+      </if>
+      <if test="hpstarBegintime != null">
+        hpstar_begintime = #{hpstarBegintime},
+      </if>
+      <if test="hpstarEndtime != null">
+        hpstar_endtime = #{hpstarEndtime},
+      </if>
+      <if test="hpdiscount != null">
+        hpdiscount = #{hpdiscount},
+      </if>
+      <if test="hpDisStarttime != null">
+        hp_dis_starttime = #{hpDisStarttime},
+      </if>
+      <if test="hpDisEndtime != null">
+        hp_dis_endtime = #{hpDisEndtime},
+      </if>
+      <if test="hpprice != null">
+        hpprice = #{hpprice},
+      </if>
+      <if test="hpcosts != null">
+        hpcosts = #{hpcosts},
+      </if>
+      <if test="hostid != null">
+        hostid = #{hostid},
+      </if>
+    </set>
+    where hpid = #{hpid}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zx.domain.THostPower">
+    <!--@mbg.generated-->
+    update t_host_power
+    set hpstar = #{hpstar},
+      hpstart_begindate = #{hpstartBegindate},
+      hpstar_enddate = #{hpstarEnddate},
+      hp_order_power = #{hpOrderPower},
+      hpstar_begintime = #{hpstarBegintime},
+      hpstar_endtime = #{hpstarEndtime},
+      hpdiscount = #{hpdiscount},
+      hp_dis_starttime = #{hpDisStarttime},
+      hp_dis_endtime = #{hpDisEndtime},
+      hpprice = #{hpprice},
+      hpcosts = #{hpcosts},
+      hostid = #{hostid}
+    where hpid = #{hpid}
+  </update>
+</mapper>

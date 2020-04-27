@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zx.mapper.HostPowerMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zx.pojo.HostPower">
+        <id column="hpid" property="hpid" />
+        <result column="hpstart" property="hpstart" />
+        <result column="hpstart_beigindate" property="hpstartBeigindate" />
+        <result column="hpstart_enddate" property="hpstartEnddate" />
+        <result column="hp_order_power" property="hpOrderPower" />
+        <result column="hpstart_begintime" property="hpstartBegintime" />
+        <result column="hpstart_endtime" property="hpstartEndtime" />
+        <result column="hpdiscount" property="hpdiscount" />
+        <result column="hp_dis_starttime" property="hpDisStarttime" />
+        <result column="hp_dis_endtime" property="hpDisEndtime" />
+        <result column="hpprice" property="hpprice" />
+        <result column="hcosts" property="hcosts" />
+        <result column="hostid" property="hostid" />
+    </resultMap>
+
+</mapper>
